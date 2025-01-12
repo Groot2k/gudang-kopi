@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gudang Kopi</title>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <!-- My Style -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <!-- Navbar Start -->
+  <nav class="navbar">
+    <a href="#" class="navbar-logo">Gudang<span>Kopi</span>.</a>
+
+    <div class="navbar-nav">
+      <a href="#home">Home</a>
+      <a href="#about">Tentang Kami</a>
+      <a href="#menu">Menu</a>
+      <a href="#contact">Kontak</a>
+    </div>
+    <div class="navbar-extra">
+      <a href="#" id="search"><i data-feather="search"></i></a>
+      <a href="#" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
+      <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
+    </div>
+  </nav>
+  <!-- Navbar End -->
+
+  <!-- Hero Section Start -->
+  <section class="hero" id="home">
+    <main class="content">
+      <h1>Awali Hari Dengan Secangkir <span>Kopi.</span></h1>
+      <p>Pusing karna banyak pikiran?, Ya kopiin aja</p>
+      <button id="buyNowButton" class="cta">Beli Sekarang</button>
+    </main>
+  </section>
+  
+  <!-- Modal Window -->
+  <div id="modalWindow" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2>Daftar Belanja</h2>
+      <p>Silakan pilih produk yang ingin Anda beli.</p>
+      <ul id="cart-items">
+        <li>
+          <img src="img/menu/kopi1.1.jpg" alt="Latte">
+          <p>- Latte -</p>
+          <p>IDR 21K</p>
+          <button class="add-btn" onclick="addToCart('Latte', 21000)">+</button>
+        </li>
+        <li>
+          <img src="img/menu/kopi2.1.jpg" alt="Cappuccino">
+          <p>- Cappuccino -</p>
+          <p>IDR 28K</p>
+          <button class="add-btn" onclick="addToCart('Cappuccino', 28000)">+</button>
+        </li>
+        <!-- Tambahkan produk lainnya -->
+      </ul>
+      <button class="btn-close-modal">Tutup</button>
+    </div>
+  </div>
+  
+  <!-- Keranjang -->
+  <div id="shopping-cart">
+    <h3>Keranjang Belanja</h3>
+    <ul id="cart-list"></ul>
+    <p><strong>Total: </strong>IDR <span id="total-price">0</span></p>
+    <button id="checkout-btn" onclick="checkout()">Beli Sekarang</button>
+  </div>  
+  
+  <!-- Hero Section End -->
+
+  <!--About Section Start -->
+  <section id="about" class="about">
+    <h2>Tentang <span>Kami</span></h2>
+
+    <div class="row">
+      <div class="about-img">
+        <img src="img/jakub.jpg" alt="Tentang Kami" />
+      </div>
+      <div class="content">
+        <h3>Mengapa harus Kopi?</h3>
+        <p>
+          Kopi bukan hanya sekadar minuman, tapi juga pengalaman yang
+          mengajarkan kita untuk menghargai proses. Seperti biji kopi yang
+          harus melalui perjalanan panjang untuk menjadi secangkir kopi yang
+          nikmat, hidup pun memerlukan waktu dan usaha untuk menghasilkan
+          hasil yang memuaskan.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!--About Section End -->
+
+  <!-- Menu Section Start -->
+  <section id="menu" class="menu">
+    <h2>Menu <span>Kami</span></h2>
+    <p>
+
+    </p>
+
+    <div class="row">
+      <div class="menu-card">
+        <img src="img/menu/kopi1.1.jpg" alt="Latte" class="menu-card-img" />
+        <h3 class="menu-card-tittle">- latte -</h3>
+        <p class="menu-card-price">IDR 21K</p>
+      </div>
+      <div class="menu-card">
+        <img src="img/menu/kopi2.1.jpg" alt="Cappuccino" class="menu-card-img" />
+        <h3 class="menu-card-tittle">- Cappuccino -</h3>
+        <p class="menu-card-price">IDR 28K</p>
+      </div>
+      <div class="menu-card">
+        <img src="img/menu/kopi3.1.jpg" alt="Americano" class="menu-card-img" />
+        <h3 class="menu-card-tittle">- Americano -</h3>
+        <p class="menu-card-price">IDR 22K</p>
+      </div>
+      <div class="menu-card">
+        <img src="img/menu/kopi4.1.jpg" alt="Mellow" class="menu-card-img" />
+        <h3 class="menu-card-tittle">- Mellow -</h3>
+        <p class="menu-card-price">IDR 25K</p>
+      </div>
+      <div class="menu-card">
+        <img src="img/menu/kopi5.1.jpg" alt="Caramel" class="menu-card-img" />
+        <h3 class="menu-card-tittle">- Caramel -</h3>
+        <p class="menu-card-price">IDR 27K </p>
+      </div>
+      <div class="menu-card">
+        <img src="img/menu/kopi6.1.jpg" alt="Espresso" class="menu-card-img" />
+        <h3 class="menu-card-tittle">- Espresso -</h3>
+        <p class="menu-card-price">IDR 23K</p>
+    </div>
+    <div class="menu-card">
+      <img src="img/menu/luwak.jpeg" alt="Luwak" class="menu-card-img" />
+      <h3 class="menu-card-tittle">- Kopi Luwak -</h3>
+      <p class="menu-card-price">IDR 19K</p>
+    </div>
+    <div class="menu-card">
+      <img src="img/menu/Gayo.jpg" alt="Gayo" class="menu-card-img" />
+      <h3 class="menu-card-tittle">- Kopi Gayo -</h3>
+      <p class="menu-card-price">IDR 17K</p>
+    </div>
+      <!-- Menu Section End -->
+
+      <!-- Contact Section Start -->
+      <section id="contact" class="contact">
+        <h2>Kontak <span>Kami</span></h2>
+        <p>
+          Jika ada kendala Silahkan hubungi kami dibawah ini
+        </p>
+      
+        <div class="row">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18224.174906782024!2d106.85663510365397!3d-6.228601142911046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f330e9ad7b2b%3A0x3e09d1405dfc323a!2sKopi%20Gudang!5e0!3m2!1sid!2sid!4v1733156755320!5m2!1sid!2sid"
+            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="map"></iframe>
+          
+          <!-- Form -->
+          <form id="contactForm">
+            <div class="input-group">
+              <i data-feather="user"></i>
+              <input type="text" id="name" placeholder="Nama" required>
+            </div>
+            <div class="input-group">
+              <i data-feather="mail"></i>
+              <input type="email" id="email" placeholder="Email" required>
+            </div>
+            <div class="input-group">
+              <i data-feather="phone"></i>
+              <input type="text" id="message" placeholder="Pesan Anda" required>
+            </div>
+            <button type="button" id="sendButton" class="btn">kirim pesan</button>
+          </form>
+        </div>
+      </section>
+      
+
+      <!-- Contact Section End -->
+
+      <!-- Footer Start -->
+      <footer>
+        <div class="socials">
+          <a href="#"><i data-feather="instagram"></i></a>
+          <a href="#"><i data-feather="twitter"></i></a>
+          <a href="#"><i data-feather="facebook"></i></a>
+        </div>
+        <div class="links">
+          <a href="#home">Home</a>
+          <a href="#about">Tentang Kami</a>
+          <a href="#menu">Menu</a>
+          <a href="#contuct">Kontak</a>
+
+          <div class="credit">
+            <p>Created by <a href="">Sultahan Harits Jonast</a>. | &copy; 2024 |</p>
+          </div>
+      </footer>
+
+
+
+      <!-- Footer End -->
+
+
+
+
+
+      <!-- Feather Icons -->
+
+      <script>
+        feather.replace();
+      </script>
+      <!-- My Javascript -->
+      <script src="js/script.js"></script>
+</body>
+
+</html>
